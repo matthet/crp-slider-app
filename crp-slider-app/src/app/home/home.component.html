@@ -1,0 +1,115 @@
+<div class="content">
+  <div class='row'>
+    <div class='column'>
+      <div class="main-image"></div>
+    </div>
+  </div>
+
+  <div fxLayout='row' class="content-text">
+    <div fxFlex class="heading">
+      Hallo und Herzlich Willkommen
+    </div>
+    <div fxFlex>
+      Clean River Project e.V. ist eine gemeinnützige Organisation, die unsere Flüsse in Deutschland sauber hält. Heute kannst du uns dabei helfen, den Spendenprozess zu verbessern!
+    </div>
+
+    <div class='wrapper'>
+      <div class='row'>
+        <div class='column'>
+          <div>
+            <span class="circle">1</span>
+          </div>
+          <div class="heading">Test</div>
+          <div>Dies ist ein Test! Wenn du tatsächlich spenden willst, kannst du es gerne im Anschluss tun!</div>
+        </div>
+        <div class='column'>
+          <div>
+            <span class="circle">2</span>
+          </div>
+          <div class="heading">Auswahl</div>
+          <div>Wähle wahrheitsgemäß aus, was du zu spenden bereit wärst.</div>
+        </div>
+        <div class='column'>
+          <div>
+            <span class="circle">3</span>
+          </div>
+          <div class="heading">Spenden</div>
+          <div>Klicke auf "Spenden" um den Test abzuschließen und um Feedback zu erhalten.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDER -->
+  <div *ngIf="slider()">
+    <div class="slide-container">
+      <div id="amount" #amount class="euro-amount">{{ donationAmount }}€</div>
+      <input #slider type="range" min="1" max="30" class="slider" [(ngModel)]="donationAmount" (ngModelChange)="adjustStyles($event)">
+      <span class="trash-amount">{{ trashAmount() }}kg <span class="small-text-ges">gesammelter</span><span class="small-text-m"> Müll</span></span>
+    </div>
+  </div>
+
+  <!-- CHECKBOXES -->
+  <div *ngIf="checkboxes()" class="checkboxes">
+    <div class='row'>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=1 [(ngModel)]="donationAmount">
+          <span><span>1€</span> ({{ trashAmount(1) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=2 [(ngModel)]="donationAmount">
+          <span><span>2€</span> ({{ trashAmount(2) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=5 [(ngModel)]="donationAmount">
+          <span><span>5€</span> ({{ trashAmount(5) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=10 [(ngModel)]="donationAmount">
+          <span><span>10€</span> ({{ trashAmount(10) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=15 [(ngModel)]="donationAmount">
+          <span><span>15€</span> ({{ trashAmount(15) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=20 [(ngModel)]="donationAmount">
+          <span><span>20€</span> ({{ trashAmount(20) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="column">
+        <label class="container">
+          <input type="radio" name="donationAmount" value=25 [(ngModel)]="donationAmount">
+          <span><span>25€</span> ({{ trashAmount(25) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column">
+        <label class="container">
+          <span></span>
+          <input type="radio" name="donationAmount" value=30 [(ngModel)]="donationAmount">
+          <span><span>30€</span> ({{ trashAmount(30) }}kg <span class="mobile-hack">gesammelter</span> Müll)</span> 
+        </label>
+      </div>
+      <div class="column"></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;">
+    <button class="button" (click)="donate()">Spenden</button>
+  </div>
+</div>
