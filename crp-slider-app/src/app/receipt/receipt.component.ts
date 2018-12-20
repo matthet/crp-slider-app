@@ -18,7 +18,7 @@ export class ReceiptComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.amount = params['amount'];
       if (this.amount) {
-        this.paypalLink = 'https://www.paypal.me/TaraSMatthews/' + this.amount;
+        this.paypalLink = '<PAYPAL_LINK' + this.amount;
       }
     });
   }
